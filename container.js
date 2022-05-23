@@ -1,4 +1,4 @@
-class container{
+class Container{
     constructor(){
         this.productos = [];
     }
@@ -28,7 +28,31 @@ class container{
     }
     getById(id){
         const findProduct = this.productos.find(producto => producto.id);
-        console.log('Producto encontrado.')
+        console.log('Producto encontrado.');
+        if(findProduct === undefined){
+            const err = {error: 'Producto no ingresado'}
+            return err
+        } else {
+            return findProduct
+        }
     }
+
+    //eliminar un producto en especial ?
+    EliminarById(){
+        const contenido = this.productos;
+        const eliminarId = contenido.filter(element =>element.id !== id);
+        this.productos = eliminarId;
+    }
+
+    getAll(){
+        return this.productos
+    }
+    deleteAll(){
+        const listaVacia = [];
+        this.productos = listaVacia;
+        console.log('Lista vaciada exitosamente.')
+    }
+
 }
 
+module.exports = Container;
