@@ -14,15 +14,24 @@ router.get("/productos/:id",(req,res)=>{
     res.json(productsById);
 });
 router.post("/productos",(req,res)=>{
+    //lo usamos solo para agregar
     const producto = req.body;
     const productoAgregado = nuevaLista.save(producto)
     res.json({productoAgregado: productoAgregado})
 })
 router.put("/productos/:id",(req,res)=>{
-    return getById()
+    //lo usamos para actualizar
+    const producto = req.body;
+    const {id} = req.params;
+    nuevaLista.updateById(id,producto)
+    res.json({mensaje: 'Producto act'})
+    
+    
 })
 router.delete("/productos/:id",(req,res)=>{
-    return EliminarById()
+    const {id} = req.params;
+    nuevaLista.eliminarById(id)
+    res.json({mensaje: 'producto eliminado.'})
 })
 
 module.exports = router;

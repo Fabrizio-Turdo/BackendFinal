@@ -38,9 +38,9 @@ class Container{
     }
 
     //eliminar un producto en especial ?
-    EliminarById(){
+    eliminarById(id){
         const contenido = this.productos;
-        const eliminarId = contenido.filter(element =>element.id !== id);
+        const eliminarId = contenido.filter(element =>element.id !== parseInt(id));
         this.productos = eliminarId;
     }
 
@@ -51,6 +51,13 @@ class Container{
         const listaVacia = [];
         this.productos = listaVacia;
         console.log('Lista vaciada exitosamente.')
+    }
+
+    updateById(id,newProduct){
+        const index = this.productos.findIndex(producto => producto.id == id )
+        this.productos[index] = newProduct;
+        this.productos[index].id = id 
+        
     }
 
 }
