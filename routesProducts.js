@@ -1,4 +1,4 @@
-const Container = require('./container');
+const Container = require('./Handlebars/api/container');
 const {Router} = require('express');
 const router = Router();
 
